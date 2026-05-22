@@ -1,0 +1,23 @@
+node_modules/
+web/dist/
+web/.vite/
+
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+.DS_Store
+Thumbs.db
+
+# Keep original/private notes local unless you intentionally choose to commit them.
+raw_notes/*
+!raw_notes/.gitkeep
+
+# Generated page images and OCR review files can be recreated.
+extracted/pages/*
+!extracted/pages/.gitkeep
+extracted/ocr/*
+!extracted/ocr/.gitkeep
+
+*.log

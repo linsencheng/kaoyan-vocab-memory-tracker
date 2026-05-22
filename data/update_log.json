@@ -1,0 +1,7 @@
+[
+  {
+    "date": "2026-05-22",
+    "action": "seed_demo_data",
+    "notes": "Initial demo vocabulary for interface and validation testing. Exam frequency entries are marked as demo, not real exam-frequency claims."
+  }
+]

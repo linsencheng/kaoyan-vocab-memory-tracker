@@ -1,0 +1,278 @@
+[
+  {
+    "word": "attorney",
+    "normalized_word": "attorney",
+    "forget_count": 7,
+    "exam_frequency": 4,
+    "exam_frequency_label": "高频",
+    "chinese": "律师；代理人",
+    "similar_words": [
+      {
+        "word": "lawyer",
+        "chinese": "律师",
+        "difference": "lawyer 是泛指律师，日常表达更常用；attorney 更正式，尤其在美式英语中强调可代表当事人处理法律事务。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "The attorney represented the client in court.",
+        "translation": "这名律师在法庭上代表客户。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-22.pdf",
+        "page": 3,
+        "line_index": 12,
+        "raw_count_mark": "正丅",
+        "detected_count": 7,
+        "corrected_count": 7,
+        "confidence": 0.72
+      }
+    ],
+    "first_seen": "2026-05-22",
+    "last_seen": "2026-05-22"
+  },
+  {
+    "word": "acquire",
+    "normalized_word": "acquire",
+    "forget_count": 11,
+    "exam_frequency": 5,
+    "exam_frequency_label": "超高频",
+    "chinese": "获得；习得",
+    "similar_words": [
+      {
+        "word": "obtain",
+        "chinese": "获得",
+        "difference": "acquire 常强调通过努力、学习或长期过程得到；obtain 更中性，强调取得某物或结果。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "Students acquire vocabulary through repeated exposure.",
+        "translation": "学生通过反复接触来习得词汇。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-20.pdf",
+        "page": 1,
+        "line_index": 8,
+        "raw_count_mark": "正",
+        "detected_count": 5,
+        "corrected_count": 5,
+        "confidence": 0.81
+      },
+      {
+        "file": "demo-2026-05-22.pdf",
+        "page": 2,
+        "line_index": 5,
+        "raw_count_mark": "正一",
+        "detected_count": 6,
+        "corrected_count": 6,
+        "confidence": 0.78
+      }
+    ],
+    "first_seen": "2026-05-20",
+    "last_seen": "2026-05-22"
+  },
+  {
+    "word": "principal",
+    "normalized_word": "principal",
+    "forget_count": 6,
+    "exam_frequency": 3,
+    "exam_frequency_label": "中频",
+    "chinese": "主要的；本金；校长",
+    "similar_words": [
+      {
+        "word": "principle",
+        "chinese": "原则；原理",
+        "difference": "principal 可以作形容词表示主要的，也可以作名词表示本金或校长；principle 只表示原则、准则或原理。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "The principal reason for the change was cost.",
+        "translation": "这次变化的主要原因是成本。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-18.pdf",
+        "page": 4,
+        "line_index": 21,
+        "raw_count_mark": "正一",
+        "detected_count": 6,
+        "corrected_count": 6,
+        "confidence": 0.68
+      }
+    ],
+    "first_seen": "2026-05-18",
+    "last_seen": "2026-05-18"
+  },
+  {
+    "word": "principle",
+    "normalized_word": "principle",
+    "forget_count": 5,
+    "exam_frequency": 3,
+    "exam_frequency_label": "中频",
+    "chinese": "原则；原理",
+    "similar_words": [
+      {
+        "word": "principal",
+        "chinese": "主要的；本金；校长",
+        "difference": "principle 强调抽象规则或原理；principal 强调主要地位，或指本金、校长等具体对象。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "The experiment was based on a simple principle.",
+        "translation": "这个实验基于一个简单原理。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-19.pdf",
+        "page": 2,
+        "line_index": 13,
+        "raw_count_mark": "正",
+        "detected_count": 5,
+        "corrected_count": 5,
+        "confidence": 0.75
+      }
+    ],
+    "first_seen": "2026-05-19",
+    "last_seen": "2026-05-19"
+  },
+  {
+    "word": "empirical",
+    "normalized_word": "empirical",
+    "forget_count": 8,
+    "exam_frequency": 0,
+    "exam_frequency_label": "未标注",
+    "chinese": "经验主义的；以实验为依据的",
+    "similar_words": [
+      {
+        "word": "theoretical",
+        "chinese": "理论上的",
+        "difference": "empirical 强调来自观察、实验或经验；theoretical 强调理论推导或概念层面。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "The claim needs empirical evidence.",
+        "translation": "这个说法需要实证证据。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-21.pdf",
+        "page": 1,
+        "line_index": 18,
+        "raw_count_mark": "正丅丅丅",
+        "detected_count": 8,
+        "corrected_count": 8,
+        "confidence": 0.61
+      }
+    ],
+    "first_seen": "2026-05-21",
+    "last_seen": "2026-05-21"
+  },
+  {
+    "word": "obscure",
+    "normalized_word": "obscure",
+    "forget_count": 4,
+    "exam_frequency": 2,
+    "exam_frequency_label": "低频",
+    "chinese": "模糊的；晦涩的；使不清楚",
+    "similar_words": [
+      {
+        "word": "ambiguous",
+        "chinese": "有歧义的",
+        "difference": "obscure 强调难以理解或不清楚；ambiguous 强调有多种解释，含义不唯一。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "The author's meaning remains obscure.",
+        "translation": "作者的意思仍然晦涩难懂。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-17.pdf",
+        "page": 5,
+        "line_index": 7,
+        "raw_count_mark": "丅丅丅丅",
+        "detected_count": 4,
+        "corrected_count": 4,
+        "confidence": 0.66
+      }
+    ],
+    "first_seen": "2026-05-17",
+    "last_seen": "2026-05-17"
+  },
+  {
+    "word": "statute",
+    "normalized_word": "statute",
+    "forget_count": 10,
+    "exam_frequency": 0,
+    "exam_frequency_label": "未标注",
+    "chinese": "",
+    "similar_words": [
+      {
+        "word": "status",
+        "chinese": "地位；状态",
+        "difference": "statute 表示成文法、法规；status 表示身份、地位或状态，拼写相近但含义不同。"
+      }
+    ],
+    "examples": [],
+    "sources": [
+      {
+        "file": "demo-2026-05-16.pdf",
+        "page": 6,
+        "line_index": 31,
+        "raw_count_mark": "正正",
+        "detected_count": 10,
+        "corrected_count": 10,
+        "confidence": 0.57
+      }
+    ],
+    "first_seen": "2026-05-16",
+    "last_seen": "2026-05-16"
+  },
+  {
+    "word": "lawyer",
+    "normalized_word": "lawyer",
+    "forget_count": 3,
+    "exam_frequency": 2,
+    "exam_frequency_label": "低频",
+    "chinese": "律师",
+    "similar_words": [
+      {
+        "word": "attorney",
+        "chinese": "律师；代理人",
+        "difference": "lawyer 是更常见的泛称；attorney 更正式，尤其常见于美式法律语境。"
+      }
+    ],
+    "examples": [
+      {
+        "sentence": "She decided to become a lawyer.",
+        "translation": "她决定成为一名律师。"
+      }
+    ],
+    "sources": [
+      {
+        "file": "demo-2026-05-22.pdf",
+        "page": 3,
+        "line_index": 13,
+        "raw_count_mark": "丅丅丅",
+        "detected_count": 3,
+        "corrected_count": 3,
+        "confidence": 0.7
+      }
+    ],
+    "first_seen": "2026-05-22",
+    "last_seen": "2026-05-22"
+  }
+]

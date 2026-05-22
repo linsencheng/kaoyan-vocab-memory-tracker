@@ -1,0 +1,32 @@
+{
+  "attorney": {
+    "score": 4,
+    "label": "高频",
+    "source": "demo"
+  },
+  "acquire": {
+    "score": 5,
+    "label": "超高频",
+    "source": "demo"
+  },
+  "principal": {
+    "score": 3,
+    "label": "中频",
+    "source": "demo"
+  },
+  "principle": {
+    "score": 3,
+    "label": "中频",
+    "source": "demo"
+  },
+  "obscure": {
+    "score": 2,
+    "label": "低频",
+    "source": "demo"
+  },
+  "lawyer": {
+    "score": 2,
+    "label": "低频",
+    "source": "demo"
+  }
+}

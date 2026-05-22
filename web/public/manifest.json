@@ -1,0 +1,12 @@
+{
+  "name": "考研英语遗忘词汇追踪器",
+  "short_name": "考研词汇",
+  "description": "基于手写笔记的考研英语遗忘词复习系统",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#f5f7f6",
+  "theme_color": "#2f7d73",
+  "icons": []
+}
