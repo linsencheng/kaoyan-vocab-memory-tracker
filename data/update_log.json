@@ -3,5 +3,225 @@
     "date": "2026-05-22",
     "action": "seed_demo_data",
     "notes": "Initial demo vocabulary for interface and validation testing. Exam frequency entries are marked as demo, not real exam-frequency claims."
+  },
+  {
+    "date": "2026-05-23T16:20:28",
+    "action": "merge_filtered_csv",
+    "csv": "extracted\\ocr\\auto_merge_candidates.csv",
+    "include_auto": true,
+    "include_quick_audit": false,
+    "min_confidence": 0.82,
+    "confidence_threshold_tolerance": 0.02,
+    "merged_rows": 771,
+    "auto_merge_rows": 771,
+    "skipped_rows": 0,
+    "new_words": 680,
+    "updated_words": 0,
+    "high_forget_count_words": 0,
+    "unknown_new_words": 680,
+    "recommendation": "recommended_to_merge",
+    "top_50_forget_count": [
+      {
+        "word": "extinct",
+        "forget_count": 7
+      },
+      {
+        "word": "revelation",
+        "forget_count": 7
+      },
+      {
+        "word": "seal",
+        "forget_count": 7
+      },
+      {
+        "word": "lease",
+        "forget_count": 6
+      },
+      {
+        "word": "sector",
+        "forget_count": 6
+      },
+      {
+        "word": "suspend",
+        "forget_count": 6
+      },
+      {
+        "word": "hence",
+        "forget_count": 5
+      },
+      {
+        "word": "recite",
+        "forget_count": 5
+      },
+      {
+        "word": "revise",
+        "forget_count": 5
+      },
+      {
+        "word": "revive",
+        "forget_count": 5
+      },
+      {
+        "word": "siege",
+        "forget_count": 5
+      },
+      {
+        "word": "trait",
+        "forget_count": 5
+      },
+      {
+        "word": "vibrate",
+        "forget_count": 5
+      },
+      {
+        "word": "absurd",
+        "forget_count": 4
+      },
+      {
+        "word": "cloak",
+        "forget_count": 4
+      },
+      {
+        "word": "dictate",
+        "forget_count": 4
+      },
+      {
+        "word": "faint",
+        "forget_count": 4
+      },
+      {
+        "word": "rein",
+        "forget_count": 4
+      },
+      {
+        "word": "resent",
+        "forget_count": 4
+      },
+      {
+        "word": "resort",
+        "forget_count": 4
+      },
+      {
+        "word": "stipulate",
+        "forget_count": 4
+      },
+      {
+        "word": "adhere",
+        "forget_count": 3
+      },
+      {
+        "word": "astonish",
+        "forget_count": 3
+      },
+      {
+        "word": "beard",
+        "forget_count": 3
+      },
+      {
+        "word": "cereal",
+        "forget_count": 3
+      },
+      {
+        "word": "conceive",
+        "forget_count": 3
+      },
+      {
+        "word": "confer",
+        "forget_count": 3
+      },
+      {
+        "word": "cruise",
+        "forget_count": 3
+      },
+      {
+        "word": "devise",
+        "forget_count": 3
+      },
+      {
+        "word": "distort",
+        "forget_count": 3
+      },
+      {
+        "word": "epidemic",
+        "forget_count": 3
+      },
+      {
+        "word": "expertise",
+        "forget_count": 3
+      },
+      {
+        "word": "extensive",
+        "forget_count": 3
+      },
+      {
+        "word": "germ",
+        "forget_count": 3
+      },
+      {
+        "word": "hail",
+        "forget_count": 3
+      },
+      {
+        "word": "hatch",
+        "forget_count": 3
+      },
+      {
+        "word": "implement",
+        "forget_count": 3
+      },
+      {
+        "word": "instinct",
+        "forget_count": 3
+      },
+      {
+        "word": "interact",
+        "forget_count": 3
+      },
+      {
+        "word": "marine",
+        "forget_count": 3
+      },
+      {
+        "word": "parade",
+        "forget_count": 3
+      },
+      {
+        "word": "pathetic",
+        "forget_count": 3
+      },
+      {
+        "word": "penalty",
+        "forget_count": 3
+      },
+      {
+        "word": "plain",
+        "forget_count": 3
+      },
+      {
+        "word": "premise",
+        "forget_count": 3
+      },
+      {
+        "word": "probe",
+        "forget_count": 3
+      },
+      {
+        "word": "readily",
+        "forget_count": 3
+      },
+      {
+        "word": "solar",
+        "forget_count": 3
+      },
+      {
+        "word": "spiral",
+        "forget_count": 3
+      },
+      {
+        "word": "suffice",
+        "forget_count": 3
+      }
+    ],
+    "skipped": []
   }
 ]
