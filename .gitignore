@@ -19,5 +19,7 @@ extracted/pages/*
 !extracted/pages/.gitkeep
 extracted/ocr/*
 !extracted/ocr/.gitkeep
+!extracted/ocr/extraction_report.json
+!extracted/ocr/filter_report.json
 
 *.log

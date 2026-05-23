@@ -1,0 +1,441 @@
+{
+  "created_at": "2026-05-23T16:16:39",
+  "input": "extracted\\ocr\\auto_filled_review.csv",
+  "total_rows": 5880,
+  "recognized_word_rows": 5079,
+  "auto_merge_count": 771,
+  "quick_audit_count": 476,
+  "manual_review_count": 186,
+  "manual_review_overflow_count": 0,
+  "skipped_empty_count": 801,
+  "skipped_missing_count_count": 3883,
+  "suspicious_word_count": 138,
+  "invalid_count_count": 0,
+  "average_confidence": 0.16,
+  "confidence_threshold_tolerance": 0.02,
+  "auto_merge_ratio": 0.131,
+  "manual_review_ratio": 0.032,
+  "examples_auto_merge": [
+    {
+      "word": "lease",
+      "detected_count": "4",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "70",
+      "line_index": "25"
+    },
+    {
+      "word": "revise",
+      "detected_count": "4",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "16",
+      "line_index": "11"
+    },
+    {
+      "word": "siege",
+      "detected_count": "3",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "64",
+      "line_index": "24"
+    },
+    {
+      "word": "trait",
+      "detected_count": "3",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "17",
+      "line_index": "27"
+    },
+    {
+      "word": "vibrate",
+      "detected_count": "3",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "26",
+      "line_index": "33"
+    },
+    {
+      "word": "absurd",
+      "detected_count": "3",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "63",
+      "line_index": "25"
+    },
+    {
+      "word": "suspend",
+      "detected_count": "3",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "16",
+      "line_index": "2"
+    },
+    {
+      "word": "cereal",
+      "detected_count": "3",
+      "confidence": "0.81",
+      "reason": "auto_merge_candidate",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "51",
+      "line_index": "28"
+    }
+  ],
+  "examples_quick_audit": [
+    {
+      "word": "pREMIER",
+      "detected_count": "1",
+      "confidence": "0.762",
+      "reason": "medium_confidence",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "3",
+      "line_index": "14"
+    },
+    {
+      "word": "onarete",
+      "detected_count": "2",
+      "confidence": "0.808",
+      "reason": "single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "4",
+      "line_index": "37"
+    },
+    {
+      "word": "cONSIST",
+      "detected_count": "1",
+      "confidence": "0.79",
+      "reason": "medium_confidence",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "5",
+      "line_index": "25"
+    },
+    {
+      "word": "IO",
+      "detected_count": "3",
+      "confidence": "0.639",
+      "reason": "medium_confidence",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "5",
+      "line_index": "10"
+    },
+    {
+      "word": "dual",
+      "detected_count": "2",
+      "confidence": "0.773",
+      "reason": "single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "6",
+      "line_index": "1"
+    },
+    {
+      "word": "affiliate",
+      "detected_count": "2",
+      "confidence": "0.81",
+      "reason": "single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "6",
+      "line_index": "22"
+    },
+    {
+      "word": "noble",
+      "detected_count": "2",
+      "confidence": "0.782",
+      "reason": "medium_confidence",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "6",
+      "line_index": "4"
+    },
+    {
+      "word": "mUTuAL",
+      "detected_count": "4",
+      "confidence": "0.666",
+      "reason": "medium_confidence",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "6",
+      "line_index": "9"
+    }
+  ],
+  "examples_manual_review": [
+    {
+      "word": "Larred",
+      "detected_count": "4",
+      "confidence": "0.81",
+      "reason": "ocr_garbage_word;single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "49",
+      "line_index": "11"
+    },
+    {
+      "word": "giveyouthe",
+      "detected_count": "4",
+      "confidence": "0.81",
+      "reason": "phrase_merge;ocr_garbage_word;single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "11",
+      "line_index": "29"
+    },
+    {
+      "word": "L",
+      "detected_count": "1",
+      "confidence": "0.81",
+      "reason": "ocr_garbage_word;weak_word_shape;single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "58",
+      "line_index": "2"
+    },
+    {
+      "word": "p",
+      "detected_count": "1",
+      "confidence": "0.405",
+      "reason": "ocr_garbage_word;very_low_confidence;weak_word_shape",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "84",
+      "line_index": "12"
+    },
+    {
+      "word": "p",
+      "detected_count": "1",
+      "confidence": "0.381",
+      "reason": "ocr_garbage_word;very_low_confidence;weak_word_shape",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "72",
+      "line_index": "11"
+    },
+    {
+      "word": "zz",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "count_empty;ocr_garbage_word;very_low_confidence;very_low_count_confidence;single_unknown_word",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "132",
+      "line_index": "37"
+    },
+    {
+      "word": "Z",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "count_empty;ocr_garbage_word;very_low_confidence;very_low_count_confidence;weak_word_shape",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "58",
+      "line_index": "20"
+    },
+    {
+      "word": "Z",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "count_empty;ocr_garbage_word;very_low_confidence;very_low_count_confidence;weak_word_shape",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "139",
+      "line_index": "20"
+    }
+  ],
+  "examples_skipped": [
+    {
+      "word": "transmission",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "1"
+    },
+    {
+      "word": "distinct",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "21"
+    },
+    {
+      "word": "hinder",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "2"
+    },
+    {
+      "word": "native",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "22"
+    },
+    {
+      "word": "sephisticated",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "3"
+    },
+    {
+      "word": "flourish",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "23"
+    },
+    {
+      "word": "mpact",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "4"
+    },
+    {
+      "word": "entertain",
+      "detected_count": "",
+      "confidence": "0.0",
+      "reason": "skipped_missing_count_low_value",
+      "file": "单词11_202605222135_07481.pdf",
+      "page": "1",
+      "line_index": "24"
+    }
+  ],
+  "top_suspicious_words": [
+    {
+      "word": "o",
+      "count": 33
+    },
+    {
+      "word": "i",
+      "count": 4
+    },
+    {
+      "word": "arind",
+      "count": 4
+    },
+    {
+      "word": "descen",
+      "count": 4
+    },
+    {
+      "word": "p",
+      "count": 4
+    },
+    {
+      "word": "t",
+      "count": 3
+    },
+    {
+      "word": "pilarim",
+      "count": 3
+    },
+    {
+      "word": "andit",
+      "count": 3
+    },
+    {
+      "word": "plansible",
+      "count": 2
+    },
+    {
+      "word": "vicions",
+      "count": 2
+    },
+    {
+      "word": "expertis",
+      "count": 2
+    },
+    {
+      "word": "j",
+      "count": 2
+    },
+    {
+      "word": "arieve",
+      "count": 2
+    },
+    {
+      "word": "plaave",
+      "count": 2
+    },
+    {
+      "word": "d",
+      "count": 2
+    },
+    {
+      "word": "vetera",
+      "count": 2
+    },
+    {
+      "word": "z",
+      "count": 2
+    },
+    {
+      "word": "versatil",
+      "count": 2
+    },
+    {
+      "word": "dd",
+      "count": 2
+    },
+    {
+      "word": "h",
+      "count": 2
+    },
+    {
+      "word": "badae",
+      "count": 2
+    },
+    {
+      "word": "intimat",
+      "count": 2
+    },
+    {
+      "word": "m",
+      "count": 2
+    },
+    {
+      "word": "netort",
+      "count": 2
+    },
+    {
+      "word": "inguiry",
+      "count": 1
+    },
+    {
+      "word": "sanctimpni",
+      "count": 1
+    },
+    {
+      "word": "giveyouthe",
+      "count": 1
+    },
+    {
+      "word": "cenfer",
+      "count": 1
+    },
+    {
+      "word": "preindice",
+      "count": 1
+    },
+    {
+      "word": "ascimilate",
+      "count": 1
+    }
+  ],
+  "outputs": {
+    "auto_merge_candidates": "extracted\\ocr\\auto_merge_candidates.csv",
+    "quick_audit_candidates": "extracted\\ocr\\quick_audit_candidates.csv",
+    "manual_review_candidates": "extracted\\ocr\\manual_review_candidates.csv"
+  }
+}

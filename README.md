@@ -35,19 +35,25 @@ npm install
 npm.cmd install
 ```
 
-Python 脚本默认只依赖标准库。若要把 PDF 自动转换成页面图片，可以任选安装一个 PDF 渲染库：
+PDF 转图片和自动抽取需要 Python 图像依赖。建议安装：
 
 ```bash
-python -m pip install pypdfium2
+python -m pip install pypdfium2 opencv-python-headless
 ```
 
-如果想尝试英文 OCR，可另外安装：
+如果想尝试英文 OCR，可安装 PaddleOCR 或 Tesseract 二选一。PaddleOCR 较重，但识别能力通常更好：
+
+```bash
+python -m pip install paddleocr paddlepaddle
+```
+
+或者安装 Python 包：
 
 ```bash
 python -m pip install pillow pytesseract
 ```
 
-`pytesseract` 还需要系统中安装 Tesseract OCR。没有 OCR 也可以使用本项目，因为人工校对模板可以空白生成。
+`pytesseract` 还需要系统中安装 Tesseract OCR。没有 OCR 也可以运行自动抽取脚本，但脚本不会伪造单词，只会生成 crop 和复核表。
 
 ## 访问方式
 
@@ -186,33 +192,197 @@ web/dist/
 
 `web/vite.config.js` 会在构建时把 `data/*.json` 复制到 `web/dist/data/`，因此 GitHub Pages 可以直接读取词库数据。
 
-## 数据处理流程
+## PDF 导入、自动预填、抽验复核流程
 
-1. 把华为笔记导出的 PDF 或页面图片放进 `raw_notes/`。
-2. 运行导入脚本，将 PDF 转成页面图片，并生成校对 CSV：
+真实笔记的稳定入口是 `raw_notes/` 中的 PDF。`.hinote` 继续只做原始存档；如果你有页面图片，也可以放进 `raw_notes/` 作为补充输入。
+
+### 1. 放入 PDF
+
+把华为笔记导出的 PDF 放入：
+
+```text
+raw_notes/
+```
+
+不要删除旧 PDF。`raw_notes/` 默认被 `.gitignore` 忽略，适合保存个人原始笔记。
+
+### 2. 导入 PDF
+
+运行：
 
 ```bash
 python scripts/import_pdf.py
 ```
 
-3. 打开 `extracted/ocr/review_template.csv`，人工校对每一行：
+脚本会扫描 `raw_notes/`，把 PDF 每页渲染为图片，保存到：
+
+```text
+extracted/pages/
+```
+
+同时生成：
+
+```text
+extracted/ocr/review_template.csv
+```
+
+`review_template.csv` 会保留，作为全人工校对备用方案。
+
+### 3. 自动识别并预填
+
+运行：
+
+```bash
+python scripts/auto_extract.py
+```
+
+脚本会读取 `extracted/pages/` 中的页面图片，用 OpenCV 做颜色分离：
+
+- 蓝色/深色/红色笔迹用于定位单词行和 word crop；
+- 红色区域用于估算单词右侧“正”字计数；
+- 所有调试 crop 保存到 `extracted/ocr/crops/`；
+- 如果 PaddleOCR 可用，优先用 PaddleOCR 识别英文单词；
+- 如果 PaddleOCR 不可用，会尝试 Tesseract；
+- 如果 OCR 不可用，脚本会在报告中说明，不会生成假单词。
+
+输出文件：
+
+```text
+extracted/ocr/auto_filled_review.csv
+extracted/ocr/review_needed.csv
+extracted/ocr/extraction_report.json
+```
+
+CSV 保持兼容字段：
 
 ```text
 file,page,line_index,word,raw_count_mark,detected_count,corrected_count,confidence,notes
 ```
 
-4. `corrected_count` 是最终合并依据。红色“正”字计数请手动换算：一个完整“正”字 = 5 次，每一笔 = 1 次。
-5. 合并人工校对后的 CSV：
+并在后面追加：
 
-```bash
-python scripts/merge_vocab.py --csv extracted/ocr/review_template.csv
+```text
+word_confidence,count_confidence,needs_review,review_reason,crop_word_path,crop_count_path
 ```
 
-6. 校验数据：
+### 4. 三层过滤
+
+运行：
+
+```bash
+python scripts/filter_candidates.py --input extracted/ocr/auto_filled_review.csv --max-manual-review 800 --quick-audit-rate 0.05
+```
+
+输出：
+
+```text
+extracted/ocr/auto_merge_candidates.csv
+extracted/ocr/quick_audit_candidates.csv
+extracted/ocr/manual_review_candidates.csv
+extracted/ocr/filter_report.json
+```
+
+三层含义：
+
+- `auto_merge_candidates.csv`：高可信候选，默认可以进入自动合并 dry-run；
+- `quick_audit_candidates.csv`：中可信和抽样备份，只需要快速扫一眼；
+- `manual_review_candidates.csv`：低可信但仍有挽救价值的行，默认控制在几百行；
+- 空白、无计数、无价值的低可信行只进入 `filter_report.json` 统计，不再要求逐行查看。
+
+旧的 `review_needed.csv` 和 `audit_sample.csv` 仍会保留作备用，但默认推荐使用三层过滤后的文件。
+
+### 5. 查看报告和小表
+
+先查看过滤报告：
+
+```text
+extracted/ocr/filter_report.json
+```
+
+然后只看两个小文件：
+
+```text
+extracted/ocr/quick_audit_candidates.csv
+extracted/ocr/manual_review_candidates.csv
+```
+
+`quick_audit_candidates.csv` 用来快速抽验整体质量，不要求逐行修改。`manual_review_candidates.csv` 只保留明显不可信但可能值得挽救的行；需要修正时填写 `corrected_count`，它的优先级最高。
+
+### 6. 自动合并 dry-run
+
+运行：
+
+```bash
+python scripts/merge_vocab.py --csv extracted/ocr/auto_merge_candidates.csv --include-auto --min-confidence 0.82 --dry-run
+```
+
+dry-run 会显示：
+
+- 将自动合并多少行；
+- 跳过多少行；
+- 新增多少词；
+- 更新多少词；
+- `quick_audit_candidates.csv` 和 `manual_review_candidates.csv` 的剩余行数；
+- 可能可疑词前 100 个；
+- 最高 `forget_count` 的前 50 个词；
+- 是否建议执行正式合并。
+
+如果 dry-run 中出现 `giveyouthe`、`larred`、`ofthe`、`inthe` 这类明显怪词，先回到过滤表修正，不要正式合并。
+
+### 7. 确认后合并
+
+```bash
+python scripts/merge_vocab.py --csv extracted/ocr/auto_merge_candidates.csv --include-auto --min-confidence 0.82
+```
+
+合并规则：
+
+- `corrected_count` 优先级最高；
+- `auto_merge_candidates.csv` 中 `needs_review = false` 且 `confidence >= 0.82` 的行可以自动合并；
+- `quick_audit_candidates.csv` 默认不自动合并，除非显式加 `--include-quick-audit`；
+- `manual_review_candidates.csv` 只合并已经填写 `corrected_count` 的行；
+- 同一个单词重复出现时，会累计 `forget_count`；
+- 每次出现都会保留到 `sources`，并记录 `source_type`、`confidence`、`word_confidence`、`count_confidence`、`crop_word_path`、`crop_count_path`；
+- 新词如果没有考频数据，会自动使用 `exam_frequency = 0` 和 `exam_frequency_label = "未标注"`。
+
+### 8. 合并人工修正行
+
+如果你在 `manual_review_candidates.csv` 中填写了 `corrected_count`，再运行：
+
+```bash
+python scripts/merge_vocab.py --csv extracted/ocr/manual_review_candidates.csv
+```
+
+### 9. 校验数据
 
 ```bash
 python scripts/validate_data.py
 ```
+
+校验会检查字段完整性、重复词、非法遗忘次数、非法考频、缺失中文释义等。
+
+### 10. 发布更新
+
+确认网页显示无误后提交并推送：
+
+```bash
+git add data/vocab.json data/update_log.json extracted/ocr/filter_report.json
+git commit -m "update vocabulary data"
+git push
+```
+
+push 到 `main` 后，GitHub Actions 会自动重新部署 GitHub Pages。华为平板刷新公网网页后，就能看到更新后的词汇表。
+
+### 全人工校对备用方案
+
+如果自动识别效果不理想，可以继续使用旧流程：
+
+```bash
+python scripts/import_pdf.py
+python scripts/merge_vocab.py --csv extracted/ocr/review_template.csv
+```
+
+这种方式仍然要求你在 `review_template.csv` 中填写 `word` 和 `corrected_count`，但它作为备用方案保留。
 
 ## 手动生成空白校对表
 
@@ -229,14 +399,18 @@ python scripts/export_template.py --rows 40 --output extracted/ocr/review_templa
 网页部署后，华为平板可以随时访问当前已发布的数据。新的 PDF 仍然需要在电脑端处理：
 
 1. 把新的 PDF 或图片放入 `raw_notes/`。
-2. 运行 `python scripts/import_pdf.py`。
-3. 人工校对 `extracted/ocr/review_template.csv`。
-4. 运行 `python scripts/merge_vocab.py --csv extracted/ocr/review_template.csv`。
-5. 运行 `python scripts/validate_data.py`。
-6. `git commit` 修改后的数据和代码。
-7. `git push` 到 `main`。
-8. GitHub Actions 自动重新部署。
-9. 平板刷新网页后看到更新后的词汇表。
+2. 运行 `python scripts/import_pdf.py`，生成页面图片和 `review_template.csv`。
+3. 运行 `python scripts/auto_extract.py`，生成自动预填表和识别报告。
+4. 运行 `python scripts/filter_candidates.py --input extracted/ocr/auto_filled_review.csv --max-manual-review 800 --quick-audit-rate 0.05`，生成三层候选表。
+5. 查看 `filter_report.json`，快速扫 `quick_audit_candidates.csv` 和 `manual_review_candidates.csv`。
+6. dry-run：`python scripts/merge_vocab.py --csv extracted/ocr/auto_merge_candidates.csv --include-auto --min-confidence 0.82 --dry-run`。
+7. 确认没有明显怪词后合并：`python scripts/merge_vocab.py --csv extracted/ocr/auto_merge_candidates.csv --include-auto --min-confidence 0.82`。
+8. 如果手工修正了 `manual_review_candidates.csv`，再运行 `python scripts/merge_vocab.py --csv extracted/ocr/manual_review_candidates.csv`。
+9. 运行 `python scripts/validate_data.py`。
+10. `git commit` 修改后的数据和代码。
+11. `git push` 到 `main`。
+12. GitHub Actions 自动重新部署。
+13. 平板刷新网页后看到更新后的词汇表。
 
 平板端暂时不负责直接上传 PDF 和处理 OCR。这样可以避免把浏览器端做得过重，也能保留人工校对流程。
 
