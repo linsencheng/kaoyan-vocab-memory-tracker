@@ -223,5 +223,38 @@
       }
     ],
     "skipped": []
+  },
+  {
+    "date": "2026-05-23T17:10:05",
+    "action": "apply_exam_frequency_to_vocab",
+    "frequency_file": "data/exam_frequency.json",
+    "updated_words": 78,
+    "missing_words": 610
+  },
+  {
+    "date": "2026-05-23T17:11:13",
+    "action": "apply_exam_frequency_to_vocab",
+    "frequency_file": "data/exam_frequency.json",
+    "updated_words": 78,
+    "missing_words": 610
+  },
+  {
+    "date": "2026-05-23T17:33:11",
+    "action": "apply_exam_frequency_to_vocab",
+    "frequency_file": "data/exam_frequency.json",
+    "updated_words": 78,
+    "missing_words": 610
+  },
+  {
+    "date": "2026-05-23T17:46:46",
+    "action": "apply_excel_exam_frequency_to_vocab",
+    "frequency_file": "data/exam_frequency.json",
+    "applied_to_vocab": 273,
+    "matched_by_normalized_word": 272,
+    "matched_by_variant": 1,
+    "ambiguous_variant_matches": 0,
+    "meaning_filled": 266,
+    "meaning_skipped_existing": 7,
+    "overwrite_meaning": false
   }
 ]

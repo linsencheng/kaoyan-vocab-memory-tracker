@@ -1,0 +1,18 @@
+{
+  "source_files": [
+    "raw_external/exam_frequency/kaoyan_exam_frequency.xlsx"
+  ],
+  "total_rows": 7923,
+  "valid_rows": 7908,
+  "invalid_rows": 15,
+  "duplicate_words": 0,
+  "built_frequency_entries": 7908,
+  "applied_to_vocab": 273,
+  "matched_by_normalized_word": 272,
+  "matched_by_variant": 1,
+  "meaning_filled": 266,
+  "meaning_skipped_existing": 7,
+  "ambiguous_variant_matches": 0,
+  "invalid_count_rows": 0,
+  "warnings": []
+}
